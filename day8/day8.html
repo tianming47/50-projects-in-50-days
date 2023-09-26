@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            height: 100vh;
+            width: 100vw;
+            background-color: #4682b4;
+        }
+        .box{
+            font-size: 20px;
+            width: 400px;
+            height: 500px;
+            background-color: #2a4e6c;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            color: white;
+        }
+        .button{
+            font-size: 20px;
+            margin-top: 50px;
+            width: 300px;
+            height: 60px;
+            border-radius: 8px;
+            background-color: #add8e6   ;
+        }
+        .button:active{
+            transform: scale(0.98);
+        }
+
+        .input{
+            width: 300px;
+            height: 50px;
+            margin-top: 50px;
+            position: relative;
+
+        }
+        .frame{
+            pointer-events: none;
+            position: absolute;
+            width: 300px;
+            height: 40px;
+            border-bottom: 1px solid white;
+            caret-color:white;
+
+        }
+
+        .label{
+            pointer-events: none;
+            position: absolute;
+        }
+
+        input{
+            position: absolute;
+            font-size: 26px;
+            height: 45px;
+            color: #ffffff;
+            width: 300px;
+            background-color:#2a4e6c;
+            border: 0;
+            outline: 0;
+
+        }
+
+        .label span{
+            color: white;
+            display: inline-block;
+            transition-duration: 0.5s;
+        }
+
+        input:valid ~div:last-child span,
+        input:focus ~div:last-child span{
+            transform: translateY(-30px);
+            color: #add8e6;
+        }
+
+        input:focus +div{
+            border-bottom: 1px solid #add8e6;
+        }
+
+        .info{
+            color: white;
+            margin-top: 10px;
+        }
+        .info a{
+            color: #a1d8e6;
+            text-decoration: none;
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="box">
+        <h1>Please Login</h1>
+        <form id="login">
+            <div class="input">
+                <input type="text"  required>
+                <div class="frame"></div>
+                <div id="usr" class="label"></div>
+            </div>
+            <div class="input">
+                <input  type="text" required>
+                <div class="frame"></div>
+                <div id="pwd" class="label"></div>
+            </div>
+        </form>
+
+        <button class="button">Login</button>
+        <div class="info"><span>Don't have an account? </span><a href="#">Register</a></div>
+
+    </div>
+</div>
+
+<script>
+
+    const usrStr = document.querySelector('#usr')
+    const pwdStr = document.querySelector('#pwd')
+    usrStr.innerHTML = 'Username'.split('')
+        .map((letter,i)=>{return `<span style="transition-delay:${i*50}ms">${letter}</span>`})
+        .join('')
+
+    pwdStr.innerHTML = 'Password'.split('')
+        .map((letter,i)=>{return `<span style="transition-delay:${i*50}ms">${letter}</span>`})
+        .join('')
+
+
+
+</script>
+
+</body>
+</html>

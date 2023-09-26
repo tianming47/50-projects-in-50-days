@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="schedule">
+        <div class="circle">
+            <div class="circleOut"></div>
+            <div class="circleIn">1</div>
+        </div>
+        <div class="line">
+            <div class="linedetail"></div>
+        </div>
+        <div class="circle">
+            <div class="circleOut"></div>
+            <div class="circleIn">2</div>
+        </div>
+        <div class="line">
+            <div class="linedetail"></div>
+        </div>
+        <div class="circle">
+            <div class="circleOut"></div>
+            <div class="circleIn">3</div>
+        </div>
+        <div class="line">
+            <div class="linedetail"></div>
+        </div>
+        <div class="circle">
+            <div class="circleOut"></div>
+            <div class="circleIn">4</div>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button class="button">pre</button>
+        <button class="button">next</button>
+    </div>
+
+
+</body>
+
+<script>
+    var state = 1
+    progress = document.getElementsByClassName('circleOut')
+    buttons = document.querySelectorAll('button')
+    lines = document.getElementsByClassName('linedetail')
+    function gonext(){
+        console.log(state);
+        if(state==3)
+        {
+            buttons[1].style.background = '#e0e0e0'
+            buttons[1].disabled = true
+        }
+        if(state==1){
+            buttons[0].style.background = '#3498db'
+            buttons[0].disabled = false
+        }
+        progress[state].style.background = '#3498db'
+        lines[state-1].style.borderColor = '#3498db'
+        state = state+1
+    }
+
+    function gopre(){
+        console.log(state);
+        if(state==4)
+        {
+            buttons[1].style.background = '#3498db'
+            buttons[1].disabled = false
+
+        }
+        if(state==2){
+            buttons[0].style.background = '#e0e0e0'
+            buttons[0].disabled = true
+        }
+        progress[state-1].style.background = '#e0e0e0'
+        lines[state-2].style.borderColor = '#e0e0e0'
+        state = state-1
+    }
+
+
+    progress[0].style.background = '#3498db'
+    buttons[1].style.background = '#3498db'
+    buttons[0].style.background = '#e0e0e0'
+    buttons[0].disabled = true
+
+    buttons[0].addEventListener('click',function (){
+        gopre()
+    })
+    buttons[1].addEventListener('click',function (){
+        gonext()
+    })
+
+</script>
+
+<style>
+
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 1000px;
+    }
+    .schedule {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .circle{
+        position: relative;
+        height: 100px;
+        width: 50px;
+    }
+    .circleOut  {
+        position: absolute;
+        background: #e0e0e0;
+        width: 50px;
+        height: 50px;
+        top: 25px;
+        border-radius: 100%;
+        transition: all linear 1s;
+    }
+    .circleIn  {
+        position: absolute;
+        background: white;
+        width: 40px;
+        height: 40px;
+        left: 5px;
+        top: 30px;
+        border-radius: 100%;
+        line-height: 40px;
+        text-align: center;
+    }
+    .line {
+        height: 100px;
+        width: 100px;
+        display: flex;
+        align-items: center;
+    }
+    .linedetail{
+        height: 1px;
+        flex: 1;
+        border-bottom: 5px solid #e0e0e0;
+        transition: all linear 1s;
+    }
+
+    .buttons   {
+        display: flex;
+        justify-content: center;
+        height: 40px;
+    }
+    .button{
+        color: white;
+        font-size: 20px;
+        background: #e0e0e0;
+        width: 100px;
+        height: 40px;
+        margin: 10px;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .activate{
+        background: #e0e0e0;
+    }
+    .deactivate{
+        background: #3498db;
+    }
+</style>
+</html>

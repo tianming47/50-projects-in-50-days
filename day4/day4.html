@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="inputdiv"><input type="text" class="input" placeholder="Search..."></div>
+        <div class="search"><i class="fa fa-search"></i></div>
+
+    </div>
+</body>
+
+
+<script>
+    var search = document.getElementsByClassName('search')[0]
+    var container = document.getElementsByClassName('container')[0]
+    var input = document.getElementsByClassName('input')[0]
+    state = 0
+    search.addEventListener('click',function (){
+        if(container.classList.contains('active'))
+            container.classList.remove('active')
+        else
+        {
+            container.classList.add('active')
+            input.focus()
+        }
+
+    })
+
+    var doclick = function (){
+        for(let i=0;i<insect.length;i++)
+            insect[0].click()
+    }
+
+
+</script>
+
+
+<style>
+    body {
+        background-color: #785cf4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container{
+        background-color: white;
+        height: 50px;
+        width: 50px;
+        display: flex;
+        justify-content: center ;
+        align-items: center;
+        transition-duration: 1s;
+    }
+
+    .inputdiv{
+        height: 35px;
+        padding: 0;
+        width: 0;
+        overflow: hidden;
+        transition-duration: 1s;
+
+    }
+    .input{
+        height: 30px;
+        width: 210px;
+        border: none;
+        outline: none;
+        font-size: 22px;
+
+    }
+
+
+    .search{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 25px;
+        width: 50px;
+        padding: 0;
+        cursor: pointer;
+
+    }
+
+
+    .container.active {
+        width: 300px;
+    }
+
+    .container.active .inputdiv {
+
+        width: 220px;
+
+    }
+
+
+
+
+
+
+
+
+
+</style>
+</html>

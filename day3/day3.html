@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="circle">
+    <div class="caidan"><img src="菜单.png" alt=""></div>
+    <div class="cuowu"><img src="错误.png" alt=""></div>
+</div>
+
+<div class="index">
+    <div class="home">home</div>
+    <div class="about">about</div>
+    <div class="contact">contact</div>
+</div>
+
+
+<div class="block">
+    <div class="content">
+        <p class="title">Amazing Article</p>
+        <p class="subtitle">Florin Pop</p>
+        <p class="describe">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia in ratione dolores cupiditate, maxime aliquid impedit dolorem nam dolor omnis atque fuga labore modi veritatis porro laborum minus, illo, maiores recusandae cumque ipsa quos. Tenetur, consequuntur mollitia labore pariatur sunt quia harum aut. Eum maxime dolorem provident natus veritatis molestiae cumque quod voluptates ab non, tempore cupiditate? Voluptatem, molestias culpa. Corrupti, laudantium iure aliquam rerum sint nam quas dolor dignissimos in error placeat quae temporibus minus optio eum soluta cupiditate! Cupiditate saepe voluptates laudantium. Ducimus consequuntur perferendis consequatur nobis exercitationem molestias fugiat commodi omnis. Asperiores quia tenetur nemo ipsa.</p>
+        <p class="title">My Dog</p>
+        <img src="1.jpg" alt="" >
+        <p class="describe">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit libero deleniti rerum quo, incidunt vel consequatur culpa ullam. Magnam facere earum unde harum. Ea culpa veritatis magnam at aliquid. Perferendis totam placeat molestias illo laudantium? Minus id minima doloribus dolorum fugit deserunt qui vero voluptas, ut quia cum amet temporibus veniam ad ea ab perspiciatis, enim accusamus asperiores explicabo provident. Voluptates sint, neque fuga cum illum, tempore autem maxime similique laborum odio, magnam esse. Aperiam?</p>
+    </div>
+</div>
+
+</body>
+
+<script>
+    var circle = document.getElementsByClassName('circle')
+    var caidan = document.getElementsByClassName('caidan')
+    var cuowu = document.getElementsByClassName('cuowu')
+    var block = document.getElementsByClassName('block')
+    var index = document.getElementsByClassName('index')
+
+    caidan[0].addEventListener('click',function (){
+        circle[0].classList.add('active')
+        // console.log(caidan[0])
+        // circle[0].style.transform = 'rotate(-90deg)'
+        // block[0].style.transform = 'rotate(-15deg)'
+        // index[0].style.left= '0'
+    })
+    cuowu[0].addEventListener('click',function (){
+        circle[0].classList.remove('active')
+        // console.log(cuowu[0])
+        // circle[0].style.transform = 'rotate(0deg)'
+        // block[0].style.transform = 'rotate(0deg)'
+        // index[0].style.left= '-300px'
+    })
+</script>
+
+<style>
+    body{
+        background-color: #333333;
+        margin: 0;
+    }
+    .block {
+        background-color: white;
+        display: flex;
+        height: 1500px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        transform-origin: left  top;
+        transition-duration: 1s;
+         z-index: 1;
+    }
+
+    .content {
+        width: 1000px;
+        height: 1000px;
+        position: relative;
+
+    }
+
+    img {
+        width: 100%;
+    }
+
+
+    .circle {
+        position: fixed;
+        width: 300px;
+        height: 300px;
+        background-color: #ff7979;
+        border-radius: 100%;
+        left: -150px;
+        top: -150px;
+        transform-origin: center;
+        transition-duration: 1s;
+        z-index: 2;
+    }
+
+    .circle.active{
+        transform: rotate(-90deg);
+    }
+    .circle.active +div+div {
+        transform: rotate(-20deg);
+    }
+
+    .circle.active +div{
+        left: 0;
+    }
+
+    .caidan{
+        position: relative;
+        width: 40px;
+        height: 40px;
+        left: 190px;
+        top: 190px;
+        cursor: pointer;
+    }
+    .cuowu{
+        position: relative;
+        width: 40px;
+        height: 40px;
+        left: 80px;
+        top: 150px;
+        cursor: pointer;
+
+    }
+
+    .index {
+        position: fixed;
+        width: 300px;
+        height: 200px;
+        top: 800px;
+        left: -300px;
+        transition-duration: 1s;
+        z-index: 2;
+        font-size: 30px;
+        color: white;
+        font-weight: bold;
+    }
+
+    .home{
+        position: relative;
+        left: 20px;
+        width: 100px;
+    }
+    .about{
+        position: relative;
+        left: 50px;
+        width: 100px;
+    }
+    .contact{
+        position: relative;
+        left: 80px;
+        width: 100px;
+    }
+
+
+
+
+
+</style>
+</html>
